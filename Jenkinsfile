@@ -29,7 +29,7 @@ pipeline {
                     def nodejsHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
                     env.PATH = "${nodejsHome}/bin:${env.PATH}"
                 }
-                sh 'npm run build --prod'
+                sh 'ng build --configuration=production'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
                         
                         // Remove the existing files in the Apache deployment directory
                         sh "sudo rm -rf ${env.APACHE_DEPLOY_DIR}/*"
-                        
+
                         sh "sudo rm -rf index.html" 
                         // Copy the newly built files to the Apache deployment directory
                         sh "sudo cp -r ${env.BUILD_DIR}/* ${env.APACHE_DEPLOY_DIR}/"
