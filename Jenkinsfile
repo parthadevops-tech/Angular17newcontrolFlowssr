@@ -43,13 +43,13 @@ pipeline {
                         // Remove the existing files in the Apache deployment directory
                         sh "sudo rm -rf ${env.APACHE_DEPLOY_DIR}/*"
                         
+                        sh "sudo rm -rf index.html" 
                         // Copy the newly built files to the Apache deployment directory
                         sh "sudo cp -r ${env.BUILD_DIR}/* ${env.APACHE_DEPLOY_DIR}/"
                         
                         // Set the correct permissions for the files
                         sh "sudo chown -R www-data:www-data ${env.APACHE_DEPLOY_DIR}"
                         sh "sudo chmod -R 755 ${env.APACHE_DEPLOY_DIR}"
-                        
                         // Restart Apache server
                         sh 'sudo systemctl restart apache2'
                         
