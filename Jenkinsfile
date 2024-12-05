@@ -64,6 +64,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Start SSR Server') {
+            pm2 stop angSSR-app || true &&
+            pm2 start /var/www/html/angSSR-app/server/server.mjs --name angSSR-app -- --port 4000
+        }
     }
 
     post {
