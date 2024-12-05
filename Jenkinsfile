@@ -51,9 +51,6 @@ pipeline {
                         sh "sudo chown -R www-data:www-data ${env.APACHE_DEPLOY_DIR}"
                         sh "sudo chmod -R 755 ${env.APACHE_DEPLOY_DIR}"
 
-                        // Start the Angular SSR server
-                        sh "cd ${env.APACHE_DEPLOY_DIR} && npm run serve:ssr:ang17newcontrolflow" 
-
                         // Restart Apache server
                         sh 'sudo systemctl restart apache2'
                         
