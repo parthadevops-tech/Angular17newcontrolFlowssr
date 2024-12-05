@@ -29,7 +29,7 @@ pipeline {
                     def nodejsHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
                     env.PATH = "${nodejsHome}/bin:${env.PATH}"
                 }
-                sh 'ng build --configuration=production'
+                sh 'npm run build:ssr'
             }
         }
 
