@@ -6,7 +6,7 @@ pipeline {
     // }
     
     environment {
-        BUILD_DIR = "/var/lib/jenkins/workspace/angularapp-jenkins/dist/ang17newcontrolflow/server"
+        BUILD_DIR = "/var/lib/jenkins/workspace/angular-ssr/dist/ang17newcontrolflow/server"
         APACHE_DEPLOY_DIR = "/var/www/html/angSSR-app"
     }
 
